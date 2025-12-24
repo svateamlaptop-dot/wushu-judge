@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Judge Panel</title>
+
+<style>
+body{
+  background:#0b1020;
+  color:white;
+  font-family:Arial;
+  padding:20px
+}
+input,button{
+  width:100%;
+  font-size:22px;
+  padding:10px;
+  margin-top:8px
+}
+button{
+  background:#2563eb;
+  color:white;
+  border:none
+}
+.reset{
+  background:#dc2626
+}
+</style>
+</head>
+
+<body>
+
+<h2>JUDGE INPUT</h2>
+
+<input id="number" placeholder="Athlete No">
+<input id="country" placeholder="Country">
+<input id="name" placeholder="Name">
+
+<input type="number" step="0.01" id="b1" placeholder="Group B - J1">
+<input type="number" step="0.01" id="b2" placeholder="Group B - J2">
+
+<input type="number" step="0.01" id="c1" placeholder="Group C - J1">
+<input type="number" step="0.01" id="c2" placeholder="Group C - J2">
+
+<input type="number" step="0.01" id="ded" placeholder="Deduction" value="0">
+
+<button onclick="calc()">CALCULATE</button>
+<button class="reset" onclick="resetScore()">RESET</button>
+
+<h2 id="result"></h2>
+
+<script>
+function calc(){
+  const total =
+    (+b1.value||0) +
+    (+b2.value||0) +
+    (+c1.value||0) +
+    (+c2.value||0) -
+    (+ded.value||0);
+
+  result.innerText = "TOTAL SCORE: " + total.toFixed(2);
+}
+
+function resetScore(){
+  document.querySelectorAll("input").forEach(i => i.value="");
+  ded.value = 0;
+  result.innerText = "";
+}
+</script>
+
+</body>
+</html>
