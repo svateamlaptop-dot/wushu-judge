@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Wushu Scoreboard</title>
+
+<style>
+body{
+  background:#0b1020;
+  color:yellow;
+  font-family:Arial;
+  text-align:center;
+  padding:20px
+}
+.big{
+  font-size:60px;
+  font-weight:bold
+}
+.mid{
+  font-size:36px
+}
+.row{
+  margin:15px 0
+}
+.box{
+  border:3px solid yellow;
+  padding:20px;
+  margin:15px auto;
+  width:80%;
+  border-radius:10px
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="big">WUSHU SCOREBOARD</h1>
+
+<div class="box">
+  <div class="mid">Athlete No: <span id="number">-</span></div>
+  <div class="mid">Name: <span id="name">-</span></div>
+  <div class="mid">Country: <span id="country">-</span></div>
+</div>
+
+<div class="box">
+  <div class="mid">Group B</div>
+  <div class="row">J1: <span id="b1">0.00</span></div>
+  <div class="row">J2: <span id="b2">0.00</span></div>
+</div>
+
+<div class="box">
+  <div class="mid">Group C</div>
+  <div class="row">J1: <span id="c1">0.00</span></div>
+  <div class="row">J2: <span id="c2">0.00</span></div>
+</div>
+
+<div class="box">
+  <div class="mid">Deduction: <span id="ded">0.00</span></div>
+  <div class="big">FINAL: <span id="final">0.00</span></div>
+</div>
+
+<script>
+/* ⚠️ DEMO MODE (NO FIREBASE) */
+/* Change values manually for now */
+
+const data = {
+  number: "001",
+  name: "Athlete Name",
+  country: "INA",
+  b1: 9.60,
+  b2: 9.55,
+  c1: 2.80,
+  c2: 2.75,
+  ded: 0.20
+};
+
+number.innerText = data.number;
+name.innerText = data.name;
+country.innerText = data.country;
+b1.innerText = data.b1.toFixed(2);
+b2.innerText = data.b2.toFixed(2);
+c1.innerText = data.c1.toFixed(2);
+c2.innerText = data.c2.toFixed(2);
+ded.innerText = data.ded.toFixed(2);
+
+const finalScore =
+  data.b1 + data.b2 + data.c1 + data.c2 - data.ded;
+
+final.innerText = finalScore.toFixed(2);
+</script>
+
+</body>
+</html>
